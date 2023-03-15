@@ -1,4 +1,4 @@
-import requests
+import requests, radar
 from random import randint, randrange
 
 
@@ -17,3 +17,8 @@ def generate_uniqe_username(username_list):
     unique_username = username_list[random_number] + str(random_range)
     return unique_username
 
+
+def generate_random_datetime(start_date="2019-10-20T01:00:00",end_date="2019-10-30T18:00:00"):
+    start = radar.utils.parse(start_date)
+    stop = radar.utils.parse(end_date)
+    return radar.random_datetime(start=start, stop=stop).strftime("%Y-%m-%d %H:%M:%S")
