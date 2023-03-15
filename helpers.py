@@ -1,4 +1,5 @@
 import requests
+from random import randint, randrange
 
 
 def get_usernames_list():
@@ -10,5 +11,9 @@ def get_usernames_list():
 
 
 
-
+def generate_uniqe_username(username_list):
+    random_number = randint(0,len(username_list))
+    random_range = randrange(0,1000000)
+    unique_username = username_list[random_number] + str(random_range)
+    return unique_username
 
