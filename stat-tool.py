@@ -1,11 +1,9 @@
 import pandas as pd
 import warnings
 
-file_path = "traffic_logs__2023-03-16__21-56-19.json"
-df = pd.read_json(file_path)
 
 def read_log_file_as_dataframe():
-    file = "traffic_logs__2023-03-16__21-56-19.json"
+    file = "traffic_logs"
     try:
         df = pd.read_json(file)
         return df

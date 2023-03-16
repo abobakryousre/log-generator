@@ -67,8 +67,7 @@ def log_generator(rows_number):
     return result
 
 def save_logs_to_file(logs_rows):
-    now  = datetime.now().strftime("%Y-%m-%d__%H-%M-%S")
-    file =  os.path.join(os.getcwd(),f"traffic_logs__{now}.json")
+    file =  os.path.join(os.getcwd(),f"traffic_logs.json")
 
     with open(file, 'w') as file:
         json.dump(logs_rows,file)
