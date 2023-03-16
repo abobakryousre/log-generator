@@ -18,7 +18,7 @@ def generate_uniqe_username(username_list):
     return unique_username
 
 def generate_username(username_list):
-    random_number = randint(0,len(username_list))
+    random_number = randint(0,len(username_list)-1)
     unique_username = username_list[random_number] + str(random_number)
     return unique_username
 

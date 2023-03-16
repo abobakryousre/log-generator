@@ -54,8 +54,15 @@ def save_logs_to_file(logs_rows):
 
 if __name__ == "__main__":
     
+    execution_start_date = datetime.now()
 
-    rows_number = 10
+    rows_number = 1000000
     logs_rows = log_generator(rows_number)
-
     save_logs_to_file(logs_rows)
+
+    execution_start_end = datetime.now()
+    execution_time = execution_start_end - execution_start_date
+
+    print(f"execution time:  {execution_time}")
+
+    
