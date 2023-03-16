@@ -5,3 +5,6 @@ df = pd.read_json(file_path)
 
 def top_10_allow_source_ip(df):
     return df[df.action=="Allow"].groupby("source-ip")['source-ip'].count().sort_values(ascending=False).head(10)
+
+def to_10_deny_username(df):
+    return df[df.action=="Deny"].groupby("username")['username'].count().sort_values(ascending=False).head(10)
