@@ -18,8 +18,8 @@ def generate_uniqe_username(username_list):
     return unique_username
 
 def generate_username(username_list):
-    random_number = randint(0,len(username_list)-1)
-    unique_username = username_list[random_number] + str(random_number)
+    random_number = randint(round(len(username_list)/2),len(username_list)-1)
+    unique_username = username_list[random_number]
     return unique_username
 
 
@@ -38,7 +38,7 @@ def generate_random_datetime(start_date="2019-10-20T01:00:00",end_date="2019-10-
 
 
 def generate_random_ip():
-    network = ipaddr.IPv4Network('10.0.0.0/8')
+    network = ipaddr.IPv4Network('10.0.0.0/16')
     ip = ipaddr.IPv4Address(randrange(int(network.network) + 1, int(network.broadcast) - 1))
     return str(ip)
 
@@ -61,7 +61,7 @@ def generate_random_action():
     return random_action[0]
 
 def get_old_source_ip(source_ip_list):
-    random_number = randint(0,len(source_ip_list) -1)
+    random_number = randint(round(len(source_ip_list)/2),len(source_ip_list) -1)
     old_source_ip = source_ip_list[random_number]
     return old_source_ip
 

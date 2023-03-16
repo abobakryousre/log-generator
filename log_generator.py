@@ -5,7 +5,7 @@ from datetime import datetime
 def log_generator(rows_number):
     ## generate random traffic logs file with the below format 
     ## date time source-ip des-ip port protocol username action
-    username_list = helpers.get_usernames_list()
+    username_list = helpers.get_usernames_list()[::2]
     result = []
 
     source_ip_list = []
