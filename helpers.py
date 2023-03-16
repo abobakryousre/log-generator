@@ -24,9 +24,17 @@ def generate_username(username_list):
 
 
 def generate_random_datetime(start_date="2019-10-20T01:00:00",end_date="2019-10-30T18:00:00"):
+    most_time = randrange(9,18,1)
+    traffic_time = [randrange(1,9) for i in range(3) ]
+    traffic_time.append(most_time)
+
+    get_random_time = choices(population=traffic_time,weights=[10,10,10,70],k=1)[0]
+
     start = radar.utils.parse(start_date)
     stop = radar.utils.parse(end_date)
-    return radar.random_datetime(start=start, stop=stop).strftime("%Y-%m-%d %H:%M:%S")
+    random_date = radar.random_date(start=start, stop=stop).replace(hour=get_random_time)
+
+    return random_date.strftime("%Y-%m-%d %H:%M:%S")
 
 
 def generate_random_ip():
