@@ -38,3 +38,11 @@ def generate_random_protocol():
     protocols = ['TCP','UDP']
     random_number = randint(0,len(protocols) -1)
     return protocols[random_number]
+
+def generate_random_protocol_port(protocol_name):
+    protocols =  {
+        "TCP" : [443,20,22],
+        "UDP" : [53,68,88]
+    }
+    random_number = randint(0,len(protocols.get(protocol_name)) -1)
+    return str(protocols[protocol_name][random_number])
