@@ -1,5 +1,5 @@
 import requests, radar, ipaddr
-from random import randint, randrange
+from random import randint, randrange, choices
 
 
 def get_usernames_list():
@@ -46,3 +46,8 @@ def generate_random_protocol_port(protocol_name):
     }
     random_number = randint(0,len(protocols.get(protocol_name)) -1)
     return str(protocols[protocol_name][random_number])
+
+def generate_random_action():
+    actions = ['Allow','Deny','Bypass','Log-Only']
+    random_action = choices(population=actions, weights=[45,5,15,35], k=1)
+    return random_action[0]
