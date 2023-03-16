@@ -1,5 +1,5 @@
 import helpers
-import os, json
+import os, json, sys
 from datetime import datetime
 
 def log_generator(rows_number):
@@ -82,7 +82,13 @@ if __name__ == "__main__":
     
     execution_start_date = datetime.now()
 
-    rows_number = 1000000
+    # geeting rows number if passed as argument
+    try:
+        rows_number = int(sys.argv[1])
+
+    except:
+        rows_number = 1000000
+
     logs_rows = log_generator(rows_number)
     save_logs_to_file(logs_rows)
 
