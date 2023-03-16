@@ -27,3 +27,6 @@ def tcp_baypass_top_5_services(df):
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         return df[df.protocol=="TCP"][df.action=="Bypass"].groupby("source-ip")["source-ip"].count().sort_values(ascending=False).head(5)
+    
+def top_5_hours_for_unique_users(df):
+    return df.sort_values(by='time',ascending=False).groupby('username').count().head(5)
