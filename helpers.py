@@ -12,7 +12,7 @@ def get_usernames_list():
 
 
 def generate_uniqe_username(username_list):
-    random_number = randint(0,len(username_list))
+    random_number = randint(0,len(username_list) -1)
     random_range = randrange(0,1000000)
     unique_username = username_list[random_number] + str(random_range)
     return unique_username
@@ -33,3 +33,8 @@ def generate_random_ip():
     network = ipaddr.IPv4Network('10.0.0.0/8')
     ip = ipaddr.IPv4Address(randrange(int(network.network) + 1, int(network.broadcast) - 1))
     return str(ip)
+
+def generate_random_protocol():
+    protocols = ['TCP','UDP']
+    random_number = randint(0,len(protocols) -1)
+    return protocols[random_number]
