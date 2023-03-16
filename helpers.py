@@ -51,3 +51,8 @@ def generate_random_action():
     actions = ['Allow','Deny','Bypass','Log-Only']
     random_action = choices(population=actions, weights=[45,5,15,35], k=1)
     return random_action[0]
+
+def get_old_source_ip(source_ip_list):
+    random_number = randint(0,len(source_ip_list) -1)
+    old_source_ip = source_ip_list[random_number]
+    return old_source_ip

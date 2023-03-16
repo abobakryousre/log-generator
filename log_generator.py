@@ -7,12 +7,22 @@ def log_generator(rows_number):
     ## date time source-ip des-ip port protocol username action
     username_list = helpers.get_usernames_list()
     result = []
+    source_ip_list = []
 
     for i in range(1,rows_number+1):
         try:
                 
             date_time = helpers.generate_random_datetime().split(" ")
-            source_ip = helpers.generate_random_ip()
+
+            if i < 650000:
+                # create random unique ip
+                source_ip = helpers.generate_random_ip()
+                source_ip_list.append(source_ip)
+                
+            else:
+                # get an old source ip.
+                source_ip = helpers.get_old_source_ip(source_ip_list)
+                
             des_ip = helpers.generate_random_ip()
             protocol = helpers.generate_random_protocol()
             port = helpers.generate_random_protocol_port(protocol)
@@ -20,7 +30,7 @@ def log_generator(rows_number):
             if i < 500000:
                 # add iteration number to make it uniuqe username
                 username = helpers.generate_username(username_list) + str(i)
-                
+
             else:
                 username = helpers.generate_username(username_list)
 
