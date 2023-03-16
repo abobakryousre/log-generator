@@ -40,6 +40,16 @@ def log_generator(rows_number):
     ## return result array
     return result
 
+def save_logs_to_file(logs_rows):
+    now  = datetime.now().strftime("%Y-%m-%d__%H-%M-%S")
+    file =  os.path.join(os.getcwd(),f"traffic_logs__{now}.json")
+
+    with open(file, 'w') as file:
+        json.dump(logs_rows,file)
+
+    print("traffic logs file created successfully at the below path.")
+    print(str(file))
+
 
 
 if __name__ == "__main__":
@@ -48,3 +58,4 @@ if __name__ == "__main__":
     rows_number = 10
     logs_rows = log_generator(rows_number)
 
+    save_logs_to_file(logs_rows)
