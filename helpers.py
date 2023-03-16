@@ -56,3 +56,23 @@ def get_old_source_ip(source_ip_list):
     random_number = randint(0,len(source_ip_list) -1)
     old_source_ip = source_ip_list[random_number]
     return old_source_ip
+
+def append_to_username_source_ips(username,username_sources_ip_list,new_source_ip):
+
+   source_ip_list = username_sources_ip_list.get(username)
+   if source_ip_list != None:
+       username_sources_ip_list.get(username).add(new_source_ip)
+   else:
+       username_sources_ip_list[username] = {new_source_ip}
+
+
+def username_has_this_sourece_iP(username, username_sources_ip_list, source_ip):
+    source_ip_list = username_sources_ip_list.get(username)
+
+    if source_ip_list == None:
+        return False
+    
+    if source_ip in source_ip_list:
+        return True
+    else:
+        return False
