@@ -1,4 +1,4 @@
-import requests, radar
+import requests, radar, ipaddr
 from random import randint, randrange
 
 
@@ -27,3 +27,9 @@ def generate_random_datetime(start_date="2019-10-20T01:00:00",end_date="2019-10-
     start = radar.utils.parse(start_date)
     stop = radar.utils.parse(end_date)
     return radar.random_datetime(start=start, stop=stop).strftime("%Y-%m-%d %H:%M:%S")
+
+
+def generate_random_ip():
+    network = ipaddr.IPv4Network('10.0.0.0/8')
+    ip = ipaddr.IPv4Address(randrange(int(network.network) + 1, int(network.broadcast) - 1))
+    return str(ip)
