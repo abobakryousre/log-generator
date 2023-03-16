@@ -16,7 +16,14 @@ def log_generator(rows_number):
             des_ip = helpers.generate_random_ip()
             protocol = helpers.generate_random_protocol()
             port = helpers.generate_random_protocol_port(protocol)
-            username = helpers.generate_username(username_list) + str(i)
+
+            if i < 500000:
+                # add iteration number to make it uniuqe username
+                username = helpers.generate_username(username_list) + str(i)
+                
+            else:
+                username = helpers.generate_username(username_list)
+
             action = helpers.generate_random_action()
 
             row = {
