@@ -22,3 +22,8 @@ def tcp_baypass_traffic_count(df):
         warnings.simplefilter("ignore")
         bypass_count = len(df[df.protocol=="TCP"][df.action=="Bypass"])
         return  str(round((bypass_count / len(df)) * 100,2)) + '%'
+    
+def tcp_baypass_top_5_services(df):
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        return df[df.protocol=="TCP"][df.action=="Bypass"].groupby("source-ip")["source-ip"].count().sort_values(ascending=False).head(5)
