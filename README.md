@@ -6,7 +6,7 @@ Generate random logs for netwokr traffic as below format
 
 ## Installation
 
-install Python 3+ 
+install Python 3.10+ 
 
 
 ## Run Locally
